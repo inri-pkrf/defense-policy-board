@@ -1,0 +1,161 @@
+{
+  "name": "GameRoom",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "title": "\u05e7\u05d5\u05d3 \u05d7\u05d3\u05e8"
+    },
+    "room_name": {
+      "type": "string",
+      "title": "\u05e9\u05dd \u05d4\u05d7\u05d3\u05e8"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "waiting",
+        "countdown",
+        "playing",
+        "finished"
+      ],
+      "default": "waiting",
+      "title": "\u05e1\u05d8\u05d8\u05d5\u05e1"
+    },
+    "host_device_id": {
+      "type": "string",
+      "title": "\u05de\u05d6\u05d4\u05d4 \u05de\u05db\u05e9\u05d9\u05e8 \u05de\u05d0\u05e8\u05d7"
+    },
+    "card_count": {
+      "type": "integer",
+      "default": 9,
+      "title": "\u05de\u05e1\u05e4\u05e8 \u05e7\u05dc\u05e4\u05d9\u05dd"
+    },
+    "timed_mode": {
+      "type": "boolean",
+      "default": false,
+      "title": "\u05de\u05e9\u05d7\u05e7 \u05e2\u05dc \u05d6\u05de\u05df"
+    },
+    "time_limit": {
+      "type": "integer",
+      "default": 30,
+      "title": "\u05de\u05d2\u05d1\u05dc\u05ea \u05d6\u05de\u05df \u05d1\u05e9\u05e0\u05d9\u05d5\u05ea"
+    },
+    "teams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "device_id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "integer",
+            "default": 0
+          },
+          "strikes": {
+            "type": "integer",
+            "default": 0
+          },
+          "best_strike": {
+            "type": "integer",
+            "default": 0
+          },
+          "correct": {
+            "type": "integer",
+            "default": 0
+          },
+          "wrong": {
+            "type": "integer",
+            "default": 0
+          }
+        }
+      },
+      "title": "\u05e7\u05d1\u05d5\u05e6\u05d5\u05ea"
+    },
+    "current_team": {
+      "type": "integer",
+      "default": 0,
+      "title": "\u05e7\u05d1\u05d5\u05e6\u05d4 \u05e0\u05d5\u05db\u05d7\u05d9\u05ea"
+    },
+    "active_card_id": {
+      "type": "string",
+      "title": "\u05e7\u05dc\u05e3 \u05e4\u05e2\u05d9\u05dc"
+    },
+    "opened_cards": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "\u05e7\u05dc\u05e4\u05d9\u05dd \u05e9\u05e0\u05e4\u05ea\u05d7\u05d5"
+    },
+    "question_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "\u05de\u05d6\u05d4\u05d9 \u05e9\u05d0\u05dc\u05d5\u05ea"
+    },
+    "last_answer": {
+      "type": "object",
+      "properties": {
+        "card_id": {
+          "type": "string"
+        },
+        "selected_answer": {
+          "type": "string"
+        },
+        "is_correct": {
+          "type": "boolean"
+        },
+        "team_index": {
+          "type": "integer"
+        },
+        "matches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "term": {
+                "type": "string"
+              },
+              "definition": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "order": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "\u05ea\u05e9\u05d5\u05d1\u05d4 \u05d0\u05d7\u05e8\u05d5\u05e0\u05d4"
+    },
+    "countdown_start": {
+      "type": "string",
+      "title": "\u05d6\u05de\u05df \u05ea\u05d7\u05d9\u05dc\u05ea \u05e1\u05e4\u05d9\u05e8\u05d4 \u05dc\u05d0\u05d7\u05d5\u05e8"
+    },
+    "end_game_request": {
+      "type": "object",
+      "properties": {
+        "requested_by": {
+          "type": "integer"
+        },
+        "team_name": {
+          "type": "string"
+        }
+      },
+      "title": "\u05d1\u05e7\u05e9\u05ea \u05e1\u05d9\u05d5\u05dd \u05de\u05e9\u05d7\u05e7"
+    }
+  },
+  "required": [
+    "code",
+    "status",
+    "host_device_id"
+  ]
+}
